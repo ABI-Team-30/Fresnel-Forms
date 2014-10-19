@@ -1,0 +1,3291 @@
+@prefix : <http://is.cs.ou.nl/850648570/Thesis/vog.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://is.cs.ou.nl/850648570/Thesis/vog.owl> .
+
+<http://is.cs.ou.nl/850648570/Thesis/vog.owl> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvrager
+
+:Aanvrager rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Aanvraag ;
+           
+           rdfs:range :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerOndertekeningPlaats
+
+:AanvragerOndertekeningPlaats rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:domain :Aanvraag ;
+                              
+                              rdfs:range :Gemeente .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AmbtenaarOndertekening
+
+:AmbtenaarOndertekening rdf:type owl:ObjectProperty ;
+                        
+                        rdfs:domain :GemeentelijkeAanvraag ;
+                        
+                        rdfs:range :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BehandelendAmbtenaar
+
+:BehandelendAmbtenaar rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:domain :GemeentelijkeAanvraag ;
+                      
+                      rdfs:range :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BijbehorendeAanvraag
+
+:BijbehorendeAanvraag rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:range :Aanvraag ;
+                      
+                      rdfs:domain :GemeentelijkeAanvraag .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GebruikteOrganisatieTemplate
+
+:GebruikteOrganisatieTemplate rdf:type owl:ObjectProperty .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#HasGemeenteVanInschrijving
+
+:HasGemeenteVanInschrijving rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:range :Gemeente ;
+                            
+                            rdfs:domain :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#HeeftAanvraagIdentificatiemiddelSoort
+
+:HeeftAanvraagIdentificatiemiddelSoort rdf:type owl:ObjectProperty ;
+                                       
+                                       rdfs:domain :Aanvraag ;
+                                       
+                                       rdfs:range :IdentificatiemiddelSoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#HeeftIdentificatiemiddel
+
+:HeeftIdentificatiemiddel rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:range :Identificatiemiddel ;
+                          
+                          rdfs:domain :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#HeeftLeegStrafblad
+
+:HeeftLeegStrafblad rdf:type owl:ObjectProperty ;
+                    
+                    owl:propertyDisjointWith :HeeftStrafblad ;
+                    
+                    rdfs:domain :NatuurlijkPersoon ;
+                    
+                    rdfs:range :Strafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#HeeftStrafblad
+
+:HeeftStrafblad rdf:type owl:ObjectProperty ;
+                
+                rdfs:domain :NatuurlijkPersoon ;
+                
+                rdfs:range :Strafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Houder
+
+:Houder rdf:type owl:ObjectProperty ;
+        
+        owl:inverseOf :HeeftIdentificatiemiddel ;
+        
+        rdfs:domain :Identificatiemiddel ;
+        
+        rdfs:range :NatuurlijkPersoon .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IDVanGemeente
+
+:IDVanGemeente rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :Gemeente ;
+               
+               rdfs:domain :GemeenteID .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IsVanNatuurlijkPersoon
+
+:IsVanNatuurlijkPersoon rdf:type owl:ObjectProperty ;
+                        
+                        owl:inverseOf :HeeftStrafblad ;
+                        
+                        rdfs:range :NatuurlijkPersoon ;
+                        
+                        rdfs:domain :Strafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IsVanSoort
+
+:IsVanSoort rdf:type owl:ObjectProperty ;
+            
+            rdfs:domain :Identificatiemiddel ;
+            
+            rdfs:range :IdentificatiemiddelSoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#OndertekendDoor
+
+:OndertekendDoor rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:domain :Aanvraag ;
+                 
+                 rdfs:range :NatuurlijkPersoon .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanduidingBijHuisnummer
+
+:AanduidingBijHuisnummer rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:domain :NatuurlijkPersoon ;
+                         
+                         rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerDigitaleHandtekening
+
+:AanvragerDigitaleHandtekening rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:domain :Aanvraag ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerEmailAddress
+
+:AanvragerEmailAddress rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:domain :Aanvraag ;
+                       
+                       rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerIDVastgesteld
+
+:AanvragerIDVastgesteld rdf:type owl:DatatypeProperty ;
+                        
+                        rdfs:domain :Aanvraag ;
+                        
+                        rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerOndertekeningDatum
+
+:AanvragerOndertekeningDatum rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:domain :Aanvraag ;
+                             
+                             rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerPassword
+
+:AanvragerPassword rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :Aanvraag ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerPasswordHandtekening
+
+:AanvragerPasswordHandtekening rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:domain :Aanvraag ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerTelefoonnummer
+
+:AanvragerTelefoonnummer rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:domain :Aanvraag ;
+                         
+                         rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvragerUserid
+
+:AanvragerUserid rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:domain :Aanvraag ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AmbtenaarDigitaleHandtekening
+
+:AmbtenaarDigitaleHandtekening rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:domain :GemeentelijkeAanvraag ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AmbtenaarPassword
+
+:AmbtenaarPassword rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :GemeentelijkeAanvraag ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AmbtenaarPasswordHandtekening
+
+:AmbtenaarPasswordHandtekening rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:domain :GemeentelijkeAanvraag ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AmbtenaarUserid
+
+:AmbtenaarUserid rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:domain :GemeentelijkeAanvraag ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BSNDatum
+
+:BSNDatum rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :NatuurlijkPersoon ;
+          
+          rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BijzonderhedenGeconstateerd
+
+:BijzonderhedenGeconstateerd rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:domain :GemeentelijkeAanvraag ;
+                             
+                             rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BijzonderhedenGeconstateerdToelichting
+
+:BijzonderhedenGeconstateerdToelichting rdf:type owl:DatatypeProperty ;
+                                        
+                                        rdfs:domain :GemeentelijkeAanvraag ;
+                                        
+                                        rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#BurgerServiceNummer
+
+:BurgerServiceNummer rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:comment """Art. 2 Wabb; Art. 7 Wabb;  Art. 8 lid 3 Wabb
+Het burgerservicenummer is een voor ieder persoon uniek nummer voor zijn/haar contacten met de overheid. Andere organisaties mogen het BSN gebruiken, als dat wettelijk geregeld is.
+
+(Verwijzing overgenomen uit de relatie algebra implementatie)""" ;
+                     
+                     rdfs:range xsd:long ;
+                     
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Identificatiemiddel
+                                                 :NatuurlijkPersoon
+                                                 :Strafblad
+                                               )
+                                 ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#CovogOmAdviesGevraagd
+
+:CovogOmAdviesGevraagd rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:domain :GemeentelijkeAanvraag ;
+                       
+                       rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#CovogOmAdviesGevraagdToelichting
+
+:CovogOmAdviesGevraagdToelichting rdf:type owl:DatatypeProperty ;
+                                  
+                                  rdfs:domain :GemeentelijkeAanvraag ;
+                                  
+                                  rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DatumDelict
+
+:DatumDelict rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :Strafblad ;
+             
+             rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DatumVestigingAdres
+
+:DatumVestigingAdres rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:domain :NatuurlijkPersoon ;
+                     
+                     rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigidNummer
+
+:DigidNummer rdf:type owl:DatatypeProperty ;
+             
+             rdfs:subPropertyOf :IdentificatieMiddelenNummer .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigitaleHandtekening
+
+:DigitaleHandtekening rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:range xsd:string ;
+                      
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( :DigiD
+                                                  :GemeenteID
+                                                )
+                                  ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#EmailAdres
+
+:EmailAdres rdf:type owl:DatatypeProperty ;
+            
+            rdfs:range xsd:string ;
+            
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :DigiD
+                                        :GemeenteID
+                                      )
+                        ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GeboorteGebiedsdeel
+
+:GeboorteGebiedsdeel rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:domain :NatuurlijkPersoon ;
+                     
+                     rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Geboortedatum
+
+:Geboortedatum rdf:type owl:DatatypeProperty ;
+               
+               rdfs:domain :NatuurlijkPersoon ;
+               
+               rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Geboorteland
+
+:Geboorteland rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :NatuurlijkPersoon ;
+              
+              rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Geboorteplaats
+
+:Geboorteplaats rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :NatuurlijkPersoon ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeenteAanvraagnummer
+
+:GemeenteAanvraagnummer rdf:type owl:DatatypeProperty ;
+                        
+                        rdfs:domain :GemeentelijkeAanvraag ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeenteIdNummer
+
+:GemeenteIdNummer rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:subPropertyOf :IdentificatieMiddelenNummer .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeentePlaats
+
+:GemeentePlaats rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :GemeenteID ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Gemeentedeel
+
+:Gemeentedeel rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :NatuurlijkPersoon ;
+              
+              rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeentelijkeLegesBetaald
+
+:GemeentelijkeLegesBetaald rdf:type owl:DatatypeProperty ;
+                           
+                           rdfs:domain :GemeentelijkeAanvraag ;
+                           
+                           rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Geslacht
+
+:Geslacht rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :NatuurlijkPersoon ;
+          
+          rdfs:range [ rdf:type rdfs:Datatype ;
+                       owl:oneOf [ rdf:type rdf:List ;
+                                   rdf:first "Man" ;
+                                   rdf:rest [ rdf:type rdf:List ;
+                                              rdf:first "Vrouw" ;
+                                              rdf:rest rdf:nil
+                                            ]
+                                 ]
+                     ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Geslachtsnaam
+
+:Geslachtsnaam rdf:type owl:DatatypeProperty ;
+               
+               rdfs:comment """Bijlage I lid 1 sub a WGBA
+Onder de gegevens over de burgerlijke staat valt de (achter)naam
+
+(Verwijzing overgenomen uit de relatie algebra implementatie)""" ;
+               
+               rdfs:domain :NatuurlijkPersoon ;
+               
+               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Huisnummer
+
+:Huisnummer rdf:type owl:DatatypeProperty ;
+            
+            rdfs:domain :NatuurlijkPersoon ;
+            
+            rdfs:range xsd:int .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IDKaartNummer
+
+:IDKaartNummer rdf:type owl:DatatypeProperty ;
+               
+               rdfs:subPropertyOf :IdentificatieMiddelenNummer .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IdentificatieMiddelenNummer
+
+:IdentificatieMiddelenNummer rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:range xsd:string ;
+                             
+                             rdfs:domain [ rdf:type owl:Class ;
+                                           owl:unionOf ( :Aanvraag
+                                                         :Identificatiemiddel
+                                                       )
+                                         ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IsBehandelendAmbtenaarHetzelfdeAlsDeOndertekenaar
+
+:IsBehandelendAmbtenaarHetzelfdeAlsDeOndertekenaar rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:domain :GemeentelijkeAanvraag ;
+                                                   
+                                                   rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IsOndertekendDoorZelfdePersoonAlsAanvrager
+
+:IsOndertekendDoorZelfdePersoonAlsAanvrager rdf:type owl:DatatypeProperty ;
+                                            
+                                            rdfs:domain :Aanvraag ;
+                                            
+                                            rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IsWoonplaatsCorrect
+
+:IsWoonplaatsCorrect rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:domain :Aanvraag ;
+                     
+                     rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#LetterBijHuisnummer
+
+:LetterBijHuisnummer rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:domain :NatuurlijkPersoon ;
+                     
+                     rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Nationaliteit
+
+:Nationaliteit rdf:type owl:DatatypeProperty ;
+               
+               rdfs:domain :NatuurlijkPersoon ;
+               
+               rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#OndertekeningDatum
+
+:OndertekeningDatum rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:domain :GemeentelijkeAanvraag ;
+                    
+                    rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#PaspoortNummer
+
+:PaspoortNummer rdf:type owl:DatatypeProperty ;
+                
+                rdfs:subPropertyOf :IdentificatieMiddelenNummer .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Password
+
+:Password rdf:type owl:DatatypeProperty ;
+          
+          rdfs:range xsd:string ;
+          
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :DigiD
+                                      :GemeenteID
+                                    )
+                      ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#PasswordDigitaleHandtekening
+
+:PasswordDigitaleHandtekening rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:range xsd:string ;
+                              
+                              rdfs:domain [ rdf:type owl:Class ;
+                                            owl:unionOf ( :DigiD
+                                                          :GemeenteID
+                                                        )
+                                          ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#PersisterenInDeAanvraag
+
+:PersisterenInDeAanvraag rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:domain :GemeentelijkeAanvraag ;
+                         
+                         rdfs:range xsd:boolean .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#PersisterenInDeAanvraagToelichting
+
+:PersisterenInDeAanvraagToelichting rdf:type owl:DatatypeProperty ;
+                                    
+                                    rdfs:domain :GemeentelijkeAanvraag ;
+                                    
+                                    rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Postcode
+
+:Postcode rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :NatuurlijkPersoon ;
+          
+          rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#RijbewijsNummer
+
+:RijbewijsNummer rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:subPropertyOf :IdentificatieMiddelenNummer .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Straatnaam
+
+:Straatnaam rdf:type owl:DatatypeProperty ;
+            
+            rdfs:domain :NatuurlijkPersoon ;
+            
+            rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Strafrechtsketennummer
+
+:Strafrechtsketennummer rdf:type owl:DatatypeProperty ;
+                        
+                        rdfs:comment """Art. 27b lid 1 Sv
+Onze Minister van Justitie kent aan de verdachte na de vaststelling van zijn identiteit een strafrechtsketennummer toe, tenzij aan hem reeds een strafrechtsketennummer is toegekend.""" ;
+                        
+                        rdfs:domain :Strafblad ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#TitelPredikaat
+
+:TitelPredikaat rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :NatuurlijkPersoon ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#ToevoegingBijHuisnummer
+
+:ToevoegingBijHuisnummer rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:domain :NatuurlijkPersoon ;
+                         
+                         rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Userid
+
+:Userid rdf:type owl:DatatypeProperty ;
+        
+        rdfs:range xsd:string ;
+        
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :DigiD
+                                    :GemeenteID
+                                  )
+                    ] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#VestigingsDatum
+
+:VestigingsDatum rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:comment "Datum van vestiging in de gemeente" ;
+                 
+                 rdfs:domain :NatuurlijkPersoon ;
+                 
+                 rdfs:range xsd:dateTime .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Voorletters
+
+:Voorletters rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :NatuurlijkPersoon ;
+             
+             rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Voornamen
+
+:Voornamen rdf:type owl:DatatypeProperty ;
+           
+           rdfs:comment """Bijlage I lid 1 sub a WGBA
+Onder de gegevens over de burgerlijke staat valt de voornaam of de voornamen
+
+(Verwijzing overgenomen uit de relatie algebra implementatie)""" ;
+           
+           rdfs:domain :NatuurlijkPersoon ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#zijnLegesBetaald
+
+:zijnLegesBetaald rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:comment """WJSG - Titel 2 - Afdeling 5 - Artikel 39 - Punt 1:
+Voor het in behandeling nemen van een aanvraag tot afgifte van een verklaring omtrent het gedrag kunnen de burgemeester en Onze Minister een vergoeding van kosten verlangen.""" ;
+                  
+                  rdfs:domain :Aanvraag ;
+                  
+                  rdfs:range xsd:boolean .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag
+
+:Aanvraag rdf:type owl:Class ;
+          
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :Aanvrager ;
+                            owl:onClass :NatuurlijkPersoon ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerOndertekeningPlaats ;
+                            owl:onClass :Gemeente ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerOndertekeningDatum ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerEmailAddress ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerDigitaleHandtekening ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :IsOndertekendDoorZelfdePersoonAlsAanvrager ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :OndertekendDoor ;
+                            owl:onClass :NatuurlijkPersoon ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :HeeftAanvraagIdentificatiemiddelSoort ;
+                            owl:onClass :IdentificatiemiddelSoort ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :IdentificatieMiddelenNummer ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :GebruikteOrganisatieTemplate ;
+                            owl:onClass :AanvraagOrganisatieTemplate ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :zijnLegesBetaald ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerPasswordHandtekening ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :AanvragerTelefoonnummer ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ;
+          
+          rdfs:comment """Aanvraag op basis waarvan een beoordeling wordt gedaan voor een Verklaring Omtrent gedrag (VOG).
+
+WJSG - Titel 2 - Afdeling 5 - Artikel 28
+Een verklaring omtrent het gedrag is een verklaring van Onze Minister dat uit een onderzoek met betrekking tot het gedrag van de betrokken natuurlijke persoon of rechtspersoon ingesteld, gelet op het risico voor de samenleving in verband met het doel waarvoor de afgifte is gevraagd en na afweging van het belang van betrokkene, niet is gebleken van bezwaren tegen die natuurlijke persoon of rechtspersoon.
+""" .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Indicatie of de leges zijn betaald." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :zijnLegesBetaald ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:boolean
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Aanvraag organisatie template, voor detailgegevens over de aanvraag, zoals beoogde funties e.a." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :GebruikteOrganisatieTemplate ;
+                        owl:onClass :AanvraagOrganisatieTemplate ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "In het geval van een digitale aanvraag, moet de digitaal ondertekend worden. Deze property bevat (afgeleid) de persoon die de aanvraag heeft ondertekend." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :OndertekendDoor ;
+                        owl:onClass :NatuurlijkPersoon ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "De indiener van de aanvraag, afgeleid op basis van het identificatiemiddel." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Aanvrager ;
+                        owl:onClass :NatuurlijkPersoon ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Afgeleide property, die aangeeft of de aanvrager en degene die de aanvraag heeft ondertekend, dezelfde personen zijn. Alleen in het geval van een digitale aanvraag." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :IsOndertekendDoorZelfdePersoonAlsAanvrager ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:boolean
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Het nummer van het identificatiemiddel waarmee de aanvrager zich identificeert." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :IdentificatieMiddelenNummer ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Het soort identificatiemiddel waarmee de aanvrager zich identificeert." ;
+  owl:annotatedSource :Aanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :HeeftAanvraagIdentificatiemiddelSoort ;
+                        owl:onClass :IdentificatiemiddelSoort ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagAutomatischGoedgekeurd
+
+:AanvraagAutomatischGoedgekeurd rdf:type owl:Class ;
+                                
+                                owl:equivalentClass [ rdf:type owl:Class ;
+                                                      owl:intersectionOf ( :Aanvraag
+                                                                           :AanvraagMetBetaaldeLeges
+                                                                           :AanvraagMetGeldigIdentificatieMiddel
+                                                                           :AanvraagPersoonZonderStrafblad
+                                                                           :AanvraagWoonachtigInGemeenteVanAanvraag
+                                                                         )
+                                                    ] ;
+                                
+                                rdfs:subClassOf :Aanvraag ;
+                                
+                                rdfs:comment "Alle aanvragen die automatisch goedgekeurd kunnen worden op basis van de woonplaats, identificatiemiddel, leges en het niet hebben van een strafblad." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagIsNietGeldig
+
+:AanvraagIsNietGeldig rdf:type owl:Class ;
+                      
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:intersectionOf ( :Aanvraag
+                                                                 [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( :AanvraagNietWoonachtigInGemeenteVanAanvraag
+                                                                                 :AanvraagZonderBetaaldeLeges
+                                                                                 :AanvraagZonderGeldigIdentificatieMiddel
+                                                                               )
+                                                                 ]
+                                                               )
+                                          ] ;
+                      
+                      rdfs:subClassOf :Aanvraag ;
+                      
+                      rdfs:comment "Alle aanvragen die niet geldig zijn, op basis van de woonplaats, leges of identificatiemiddel." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagMetBetaaldeLeges
+
+:AanvraagMetBetaaldeLeges rdf:type owl:Class ;
+                          
+                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                owl:intersectionOf ( :Aanvraag
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :zijnLegesBetaald ;
+                                                                       owl:hasValue "true"^^xsd:boolean
+                                                                     ]
+                                                                   )
+                                              ] ;
+                          
+                          owl:disjointWith :AanvraagZonderBetaaldeLeges ;
+                          
+                          rdfs:comment """WJSG - Titel 2 - Afdeling 5 - Artikel 39 - Punt 1:
+Voor het in behandeling nemen van een aanvraag tot afgifte van een verklaring omtrent het gedrag kunnen de burgemeester en Onze Minister een vergoeding van kosten verlangen.""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagMetGeldigIdentificatieMiddel
+
+:AanvraagMetGeldigIdentificatieMiddel rdf:type owl:Class ;
+                                      
+                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                            owl:intersectionOf ( :Aanvraag
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :Aanvrager ;
+                                                                                   owl:someValuesFrom :NatuurlijkPersoon
+                                                                                 ]
+                                                                               )
+                                                          ] ;
+                                      
+                                      rdfs:subClassOf :Aanvraag ;
+                                      
+                                      owl:disjointWith :AanvraagZonderGeldigIdentificatieMiddel ;
+                                      
+                                      rdfs:comment """WJSG - Titel 2 - Afdeling 5 - Artikel 30 - Punt 2:
+De burgemeester en Onze Minister onderzoeken de volledigheid van de bij de aanvraag verstrekte gegevens en verschaffen zich de nodige zekerheid over de identiteit van de aanvrager.
+
+Beleidsnota VOG-NP-RP-2008 - Paragraaf 4.1:
+In alle gevallen dient de aanvrager en/of diens gemachtigde zich te legitimeren door middel van een geldig legitimatiebewijs.""" ,
+                                                   "De identiteit van een aanvrager kan alleen zijn vastgesteld als het middel op basis waarvan die identiteit is vastgesteld, is geregistreerd" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagNietWoonachtigInGemeenteVanAanvraag
+
+:AanvraagNietWoonachtigInGemeenteVanAanvraag rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf :Aanvraag ;
+                                             
+                                             owl:disjointWith :AanvraagWoonachtigInGemeenteVanAanvraag ;
+                                             
+                                             rdfs:comment """WJSG - Titel 2 - Artikel 30 
+De aanvraag om afgifte van de verklaring omtrent het gedrag van een natuurlijk persoon wordt ingediend bij de burgemeester van de gemeente, waar de aanvrager op het tijdstip van de aanvraag als ingezetene is ingeschreven in de basisadministratie persoonsgegevens. In alle andere gevallen wordt de aanvraag ingediend bij Onze Minister.""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagOrganisatieTemplate
+
+:AanvraagOrganisatieTemplate rdf:type owl:Class ;
+                             
+                             rdfs:comment "Aanvraag organisatie template, voor detailgegevens over de aanvraag, zoals beoogde funties e.a." ,
+                                          "(niet volledig geimplementeerd)" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagPersoonMetStrafblad
+
+:AanvraagPersoonMetStrafblad rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf :Aanvraag ;
+                             
+                             owl:disjointWith :AanvraagPersoonZonderStrafblad ;
+                             
+                             rdfs:comment """Beleidsnota VOG-NP-RP-2008 - Paragraaf 3:
+Bij de beoordeling van de aanvraag wordt in beginsel gekeken naar de justitiële gegevens die zijn opgenomen in de justitiële documentatie in de voor het doel van de aanvraag relevante termijn.
+
+Wanneer de aanvrager wel voorkomt in de justitiële documentatie wordt de vraag of een VOG kan worden afgegeven beoordeeld aan de hand van een objectief criterium en een subjectief criterium.
+""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagPersoonZonderStrafblad
+
+:AanvraagPersoonZonderStrafblad rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf :Aanvraag ;
+                                
+                                rdfs:comment """Beleidsnota VOG-NP-RP-2008 - Paragraaf 3:
+Bij de beoordeling van de aanvraag wordt in beginsel gekeken naar de justitiële gegevens die zijn opgenomen in de justitiële documentatie in de voor het doel van de aanvraag relevante termijn.
+Aan de aanvrager die in het geheel niet voorkomt in de justitiële documentatie wordt zonder meer een VOG afgegeven.
+""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagWoonachtigInGemeenteVanAanvraag
+
+:AanvraagWoonachtigInGemeenteVanAanvraag rdf:type owl:Class ;
+                                         
+                                         rdfs:subClassOf :Aanvraag ;
+                                         
+                                         rdfs:comment """WJSG - Titel 2 - Artikel 30 
+De aanvraag om afgifte van de verklaring omtrent het gedrag van een natuurlijk persoon wordt ingediend bij de burgemeester van de gemeente, waar de aanvrager op het tijdstip van de aanvraag als ingezetene is ingeschreven in de basisadministratie persoonsgegevens. In alle andere gevallen wordt de aanvraag ingediend bij Onze Minister.""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagZonderBetaaldeLeges
+
+:AanvraagZonderBetaaldeLeges rdf:type owl:Class ;
+                             
+                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                   owl:intersectionOf ( :Aanvraag
+                                                                        [ rdf:type owl:Class ;
+                                                                          owl:complementOf :AanvraagMetBetaaldeLeges
+                                                                        ]
+                                                                      )
+                                                 ] ;
+                             
+                             rdfs:subClassOf :Aanvraag ;
+                             
+                             rdfs:comment """WJSG - Titel 2 - Afdeling 5 - Artikel 39 - Punt 1:
+Voor het in behandeling nemen van een aanvraag tot afgifte van een verklaring omtrent het gedrag kunnen de burgemeester en Onze Minister een vergoeding van kosten verlangen.""" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#AanvraagZonderGeldigIdentificatieMiddel
+
+:AanvraagZonderGeldigIdentificatieMiddel rdf:type owl:Class ;
+                                         
+                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                               owl:intersectionOf ( :Aanvraag
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :Aanvrager ;
+                                                                                      owl:onClass :NatuurlijkPersoon ;
+                                                                                      owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger
+                                                                                    ]
+                                                                                  )
+                                                             ] ;
+                                         
+                                         rdfs:subClassOf :Aanvraag ;
+                                         
+                                         rdfs:comment """WJSG - Titel 2 - Afdeling 5 - Artikel 30 - Punt 2:
+De burgemeester en Onze Minister onderzoeken de volledigheid van de bij de aanvraag verstrekte gegevens en verschaffen zich de nodige zekerheid over de identiteit van de aanvrager.
+
+Beleidsnota VOG-NP-RP-2008 - Paragraaf 4.1:
+In alle gevallen dient de aanvrager en/of diens gemachtigde zich te legitimeren door middel van een geldig legitimatiebewijs.""" ,
+                                                      "De identiteit van een aanvrager kan alleen zijn vastgesteld als het middel op basis waarvan die identiteit is vastgesteld, is geregistreerd" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigiD
+
+:DigiD rdf:type owl:Class ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:intersectionOf ( :Identificatiemiddel
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :IsVanSoort ;
+                                                    owl:hasValue :DigiDSoort
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :DigidNummer ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onDataRange xsd:string
+                                                  ]
+                                                )
+                           ] ;
+       
+       rdfs:subClassOf :Identificatiemiddel ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :PasswordDigitaleHandtekening ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:boolean
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Password ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Userid ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :DigitaleHandtekening ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:boolean
+                       ] ;
+       
+       rdfs:comment "Elk DigiD heeft een gebruikersnaam en wachtwoord, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Gemeente
+
+:Gemeente rdf:type owl:Class ;
+          
+          rdfs:comment "Lijst van mogelijke gemeentes die als woonplaats voor natuurlijke personen en als lokatie van aanvraag gelden." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeenteID
+
+:GemeenteID rdf:type owl:Class ;
+            
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:intersectionOf ( :Identificatiemiddel
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :IsVanSoort ;
+                                                         owl:hasValue :GemeenteIDSoort
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :GemeenteIdNummer ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange xsd:string
+                                                       ]
+                                                     )
+                                ] ;
+            
+            rdfs:subClassOf :Identificatiemiddel ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :PasswordDigitaleHandtekening ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :DigitaleHandtekening ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :Password ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :GemeentePlaats ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :Userid ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :IDVanGemeente ;
+                              owl:onClass :Gemeente ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :EmailAdres ;
+                              owl:someValuesFrom xsd:string
+                            ] ;
+            
+            rdfs:comment "Elk GemeenteID heeft een gebruikersnaam en wachtwoord, en identificeert een natuurlijk persoon werkzaam bij een gemeente." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeentelijkeAanvraag
+
+:GemeentelijkeAanvraag rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty :BehandelendAmbtenaar ;
+                                         owl:onClass :NatuurlijkPersoon ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AmbtenaarPassword ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :GemeenteAanvraagnummer ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :CovogOmAdviesGevraagdToelichting ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AmbtenaarUserid ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :PersisterenInDeAanvraag ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :GemeentelijkeLegesBetaald ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AmbtenaarPasswordHandtekening ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :CovogOmAdviesGevraagd ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :BijbehorendeAanvraag ;
+                                         owl:onClass :Aanvraag ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :BijzonderhedenGeconstateerdToelichting ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AmbtenaarDigitaleHandtekening ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OndertekeningDatum ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:dateTime
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :PersisterenInDeAanvraagToelichting ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :BijzonderhedenGeconstateerd ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ;
+                       
+                       rdfs:comment "Een aanvraag direct ingedient bij een gemeente." .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Voor elke gemeentelijke VOG aanvraag geldt dat hij een aanvraagnummer heeft." ;
+  owl:annotatedSource :GemeentelijkeAanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :GemeenteAanvraagnummer ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Voor elke gemeentelijke VOG aanvraag geldt dat er een behandelend ambtenaar is." ;
+  owl:annotatedSource :GemeentelijkeAanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :BehandelendAmbtenaar ;
+                        owl:onClass :NatuurlijkPersoon ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Bijbehorende VOG aanvraag " ;
+  owl:annotatedSource :GemeentelijkeAanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :BijbehorendeAanvraag ;
+                        owl:onClass :Aanvraag ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Voor elke gemeentelijke VOG aanvraag geldt dat er een behandelend ambtenaar is." ;
+  owl:annotatedSource :GemeentelijkeAanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :AmbtenaarUserid ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Voor elke gemeentelijke VOG aanvraag geldt dat er een behandelend ambtenaar is." ;
+  owl:annotatedSource :GemeentelijkeAanvraag ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :AmbtenaarPassword ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#ID-kaart
+
+:ID-kaart rdf:type owl:Class ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :Identificatiemiddel
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :IsVanSoort ;
+                                                       owl:hasValue :IDKaart
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :IDKaartNummer ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange xsd:string
+                                                     ]
+                                                   )
+                              ] ;
+          
+          rdfs:comment "Elke ID-Kaart heeft een nummer en een houder, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Identificatiemiddel
+
+:Identificatiemiddel rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :Houder ;
+                                       owl:onClass :NatuurlijkPersoon ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :IdentificatieMiddelenNummer ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ;
+                     
+                     rdfs:comment "Een identificatiemiddel is een goedgekeurd middel waarmee een natuurlijk persoon zich kan identificeren. Een bewijs dat iemand is die hij/zij zegt dat hij/zij is." .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Elke identificatiemiddel heeft altijd een nummer." ;
+  owl:annotatedSource :Identificatiemiddel ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :IdentificatieMiddelenNummer ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Een identificatiemiddel hoort altijd bij een natuurlijkpersoon." ;
+  owl:annotatedSource :Identificatiemiddel ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Houder ;
+                        owl:onClass :NatuurlijkPersoon ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IdentificatiemiddelSoort
+
+:IdentificatiemiddelSoort rdf:type owl:Class ;
+                          
+                          rdfs:comment "Mogelijke soorten van identificatiemiddelen" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#NatuurlijkPersoon
+
+:NatuurlijkPersoon rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Persoon ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :AanduidingBijHuisnummer ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BSNDatum ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Voornamen ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :HeeftStrafblad ;
+                                     owl:onClass :Strafblad ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Gemeentedeel ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Geboorteplaats ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Nationaliteit ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :HasGemeenteVanInschrijving ;
+                                     owl:onClass :Gemeente ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :TitelPredikaat ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :GeboorteGebiedsdeel ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DatumVestigingAdres ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Voorletters ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Geboorteland ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :VestigingsDatum ;
+                                     owl:someValuesFrom xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ToevoegingBijHuisnummer ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Straatnaam ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Huisnummer ;
+                                     owl:someValuesFrom xsd:int
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Geslacht ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Geboortedatum ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BurgerServiceNummer ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:long
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Postcode ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Geslachtsnaam ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :LetterBijHuisnummer ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ;
+                   
+                   rdfs:comment "Mens (individu) als rechtssubject." ;
+                   
+                   owl:hasKey ( :BurgerServiceNummer
+                              ) .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Iedereen die zich bij de gemeente heeft ingeschreven heeft een burgerservicenummer.
+
+Art. 2 Wabb; Art. 7 Wabb;  Art. 8 lid 3 Wabb:
+Het burgerservicenummer is een voor ieder persoon uniek nummer voor zijn/haar contacten met de overheid. Andere organisaties mogen het BSN gebruiken, als dat wettelijk geregeld is.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :BurgerServiceNummer ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:long
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """De dag waarop een persoon geboren is, wordt aangehaald als zijnde de geboortedatum.
+
+gbaGeboortedatum[NatuurlijkPersoon*Datum] 
+Bijlage I lid 1 sub b WGBA:
+Ieder persoon heeft een geboortedatum, die wordt weergegeven als dd-mm-jjjj.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Geboortedatum ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """De nationaliteit(en) van een persoon moet(en) worden geregistreerd.
+
+Art. 42 WGBA; Art. 43 WGBA
+Gegevens over het Nederlanderschap worden opgenomen. Gegevens over een vreemde nationaliteit worden ontleend aan een beschikking of uitspraak van een daartoe volgens het ter plaatse geldend recht bevoegde administratieve of rechterlijke instantie, die tot doel heeft tot bewijs te dienen van de betreffende nationaliteit, dan wel opgenomen met toepassing van het betreffende nationaliteitsrecht.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Nationaliteit ;
+                        owl:someValuesFrom xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """De plaats waar een persoon geboren is, wordt aangeduid als de geboorteplaats.
+
+Bijlage I lid 1 sub b WGBA:
+De plaats waar een persoon geboren is, wordt aangeduidt als geboorteplaats en dit gegeven valt onder de geboortegevens.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Geboorteplaats ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Een persoon kan een of meerdere adelijke aanspreektitels hebben.
+
+Bijlage I lid 1 sub a WGBA:
+Adelijke titels worden als aanspreektitels beschouwd en moeten worden vermeld op officiële documenten.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :TitelPredikaat ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Het land waar een persoon geboren is, wordt aangeduid als het geboorteland.
+
+Bijlage I lid 1 sub b WGBA:
+Een persoon heeft als geboorteland het land waarin hij of zij geboren is en dit gegeven valt onder de geboortegegevens.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Geboorteland ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Een persoon heeft een of meerdere voornamen.
+
+Bijlage I lid 1 sub a WGBA:
+Onder de gegevens over de burgerlijke staat valt de voornaam of de voornamen.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Voornamen ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Elk persoon is van een bepaald geslacht.
+
+Art. 34 lid 1 WGBA; Bijlage I lid 1 sub c WGBA:
+Het geslacht van een natuurlijk persoon wordt mede gebruikt om de aanspreekvorm te bepalen van de natuurlijk persoon te bepalen.""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Geslacht ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Datum van kracht worden van het burgerservicenummer." ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :BSNDatum ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Datum van vestiging in de gemeente" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :DatumVestigingAdres ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Datum van vestiging in de gemeente" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :VestigingsDatum ;
+                        owl:someValuesFrom xsd:dateTime
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment """Een persoon heeft een achternaam.
+
+Bijlage I lid 1 sub a WGBA: Onder de gegevens over de burgerlijke staat valt de (achter)naam.
+""" ;
+  owl:annotatedSource :NatuurlijkPersoon ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Geslachtsnaam ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#NatuurlijkPersoonMetStrafblad
+
+:NatuurlijkPersoonMetStrafblad rdf:type owl:Class ;
+                               
+                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                     owl:intersectionOf ( :NatuurlijkPersoon
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :HeeftStrafblad ;
+                                                                            owl:onClass :Strafblad ;
+                                                                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                          ]
+                                                                        )
+                                                   ] ;
+                               
+                               rdfs:comment "Mens (individu) als rechtssubject. Deze mens heeft wel een strafblad." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#NatuurlijkPersoonZonderStrafblad
+
+:NatuurlijkPersoonZonderStrafblad rdf:type owl:Class ;
+                                  
+                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                        owl:intersectionOf ( :NatuurlijkPersoon
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :HeeftLeegStrafblad ;
+                                                                               owl:someValuesFrom :Strafblad
+                                                                             ]
+                                                                           )
+                                                      ] ;
+                                  
+                                  rdfs:comment "Mens (individu) als rechtssubject. Deze mens heeft geen strafblad." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Paspoort
+
+:Paspoort rdf:type owl:Class ;
+          
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:intersectionOf ( :Identificatiemiddel
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :IsVanSoort ;
+                                                       owl:hasValue :Paspoort
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :PaspoortNummer ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onDataRange xsd:string
+                                                     ]
+                                                   )
+                              ] ;
+          
+          rdfs:comment "Elk paspoort heeft een nummer en een houder, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Persoon
+
+:Persoon rdf:type owl:Class ;
+         
+         rdfs:comment "Een persoon of organisatie (rechtspersoon)" .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Rijbewijs
+
+:Rijbewijs rdf:type owl:Class ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:intersectionOf ( :Identificatiemiddel
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :IsVanSoort ;
+                                                        owl:hasValue :Rijbewijs
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :RijbewijsNummer ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onDataRange xsd:string
+                                                      ]
+                                                    )
+                               ] ;
+           
+           rdfs:comment "Elk rijbewijs heeft een nummer en een houder, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Strafblad
+
+:Strafblad rdf:type owl:Class ;
+           
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :DatumDelict ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :Strafrechtsketennummer ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :IsVanNatuurlijkPersoon ;
+                             owl:onClass :NatuurlijkPersoon ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ;
+           
+           rdfs:comment "(niet volledig geimplementeerd)" ,
+                        """Beleidsnota VOG-NP-RP-2008 - Paragraaf 3.2.1:
+De relevante justitiële gegevens die voorkomen in de justitiële documentatie op naam van de aanvrager, of die betrekking hebben op de betreffende rechtspersonen, of daarmee gelijk gestelde organisaties, worden meegewogen bij de beoordeling. Indien een aanvraag wordt gedaan ten behoeve van een rechtspersoon, worden ook de gegevens met betrekking tot relevante strafbare feiten op naam van ieder van de bestuurders, vennoten, maten of beheerders van die rechtspersoon meegewogen.""" ,
+                        """Beleidsnota VOG-NP-RP-2008 - Paragraaf 3:
+Bij de beoordeling van de aanvraag wordt in beginsel gekeken naar de justitiële gegevens die zijn opgenomen in de justitiële documentatie in de voor het doel van de aanvraag relevante termijn.""" ,
+                        """WJSG - Titel 2 - Afdeling 5 - Artikel 36 - Punt 1:
+Onze Minister kan bij zijn onderzoek met betrekking tot de afgifte van de verklaring omtrent het gedrag van een natuurlijk persoon kennis nemen van op de aanvrager betrekking hebbende justitiële gegevens alsmede van politiegegevens als bedoeld in artikel 1, onder a, van de Wet politiegegevens, met uitzondering van de gegevens waarover op grond van artikel 21 geen mededeling kan worden gedaan aan de verzoeker, die gebruik maakt van zijn recht, als bedoeld in artikel 18, eerste lid.""" .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Onze Minister van Justitie kent aan de verdachte na de vaststelling van zijn identiteit een strafrechtsketennummer toe, tenzij aan hem reeds een strafrechtsketennummer is toegekend." ;
+  owl:annotatedSource :Strafblad ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :Strafrechtsketennummer ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ]
+] .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Een strafblad is altijd van een natuurlijk persoon" ;
+  owl:annotatedSource :Strafblad ;
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget [ rdf:type owl:Restriction ;
+                        owl:onProperty :IsVanNatuurlijkPersoon ;
+                        owl:onClass :NatuurlijkPersoon ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ]
+] .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_LegesBetaald
+
+:Aanvraag_LegesBetaald rdf:type :Aanvraag ,
+                                owl:NamedIndividual ;
+                       
+                       :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                       
+                       :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                       
+                       :zijnLegesBetaald "true"^^xsd:boolean ;
+                       
+                       rdfs:comment "Voorbeeld van een aanvraag waarvan de leges zijn betaald." ;
+                       
+                       :AanvragerOndertekeningPlaats :Noordenveld ;
+                       
+                       :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_LegesNietBetaald
+
+:Aanvraag_LegesNietBetaald rdf:type :Aanvraag ,
+                                    owl:NamedIndividual ;
+                           
+                           :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                           
+                           :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                           
+                           :zijnLegesBetaald "false"^^xsd:boolean ;
+                           
+                           rdfs:comment "Voorbeeld van een aanvraag waarvoor de leges niet zijn betaald." ;
+                           
+                           :AanvragerOndertekeningPlaats :Noordenveld ;
+                           
+                           :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_MetGeldigeIdentificatie
+
+:Aanvraag_MetGeldigeIdentificatie rdf:type :Aanvraag ,
+                                           owl:NamedIndividual ;
+                                  
+                                  :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                                  
+                                  :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                                  
+                                  :zijnLegesBetaald "true"^^xsd:boolean ;
+                                  
+                                  rdfs:comment "Voorbeeld van een aanvraag waarvan de identificatie een geldig natuurlijkpersoon opleverd." ;
+                                  
+                                  :AanvragerOndertekeningPlaats :Noordenveld ;
+                                  
+                                  :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_NietWoonachtigInGemeenteVanAanvraag
+
+:Aanvraag_NietWoonachtigInGemeenteVanAanvraag rdf:type :Aanvraag ,
+                                                       owl:NamedIndividual ;
+                                              
+                                              :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                                              
+                                              :IdentificatieMiddelenNummer "P453027177"^^xsd:string ;
+                                              
+                                              :zijnLegesBetaald "true"^^xsd:boolean ;
+                                              
+                                              rdfs:comment "Voorbeeld van een aanvraag waarvan de aanvrager een natuurlijkpersoon is, die niet woonachtig is in de plaats van aanvraag." ;
+                                              
+                                              :AanvragerOndertekeningPlaats :Noordenveld ;
+                                              
+                                              :HeeftAanvraagIdentificatiemiddelSoort :Paspoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_PersoonMetStrafblad
+
+:Aanvraag_PersoonMetStrafblad rdf:type :Aanvraag ,
+                                       owl:NamedIndividual ;
+                              
+                              :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                              
+                              :IdentificatieMiddelenNummer "P453027177"^^xsd:string ;
+                              
+                              :zijnLegesBetaald "true"^^xsd:boolean ;
+                              
+                              rdfs:comment "Voorbeeld van een aanvraag waarvan de aanvrager een natuurlijkpersoon is met een strafblad." ;
+                              
+                              :AanvragerOndertekeningPlaats :Noordenveld ;
+                              
+                              :HeeftAanvraagIdentificatiemiddelSoort :Paspoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_PersoonZonderStrafblad
+
+:Aanvraag_PersoonZonderStrafblad rdf:type :Aanvraag ,
+                                          owl:NamedIndividual ;
+                                 
+                                 :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                                 
+                                 :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                                 
+                                 :zijnLegesBetaald "true"^^xsd:boolean ;
+                                 
+                                 rdfs:comment "Voorbeeld van een aanvraag waarvan de aanvrager een natuurlijkpersoon is zonder een strafblad." ;
+                                 
+                                 :AanvragerOndertekeningPlaats :Noordenveld ;
+                                 
+                                 :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_WoonachtigInGemeenteVanAanvraag
+
+:Aanvraag_WoonachtigInGemeenteVanAanvraag rdf:type :Aanvraag ,
+                                                   owl:NamedIndividual ;
+                                          
+                                          :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                                          
+                                          :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                                          
+                                          :zijnLegesBetaald "true"^^xsd:boolean ;
+                                          
+                                          rdfs:comment "Voorbeeld van een aanvraag waarvan de aanvrager een natuurlijkpersoon is, woonachtig in de gemeente van aanvraag." ;
+                                          
+                                          :AanvragerOndertekeningPlaats :Noordenveld ;
+                                          
+                                          :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Aanvraag_ZonderGeldigeIdentificatie
+
+:Aanvraag_ZonderGeldigeIdentificatie rdf:type :Aanvraag ,
+                                              owl:NamedIndividual ;
+                                     
+                                     :AanvragerOndertekeningDatum "2012-11-01T00:00:00"^^xsd:dateTime ;
+                                     
+                                     :IdentificatieMiddelenNummer "FOUTNUMMER"^^xsd:string ;
+                                     
+                                     :zijnLegesBetaald "true"^^xsd:boolean ;
+                                     
+                                     rdfs:comment "Voorbeeld van een aanvraag waarvan de indentificatie niet een geldig NatuurlijkPersoon opleverd." ;
+                                     
+                                     :AanvragerOndertekeningPlaats :Den_Haag ;
+                                     
+                                     :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Amsterdam
+
+:Amsterdam rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Den_Haag
+
+:Den_Haag rdf:type :Gemeente ,
+                   owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Dhr._A.M._van_der_Putten
+
+:Dhr._A.M._van_der_Putten rdf:type :NatuurlijkPersoon ,
+                                   owl:NamedIndividual ;
+                          
+                          :BurgerServiceNummer "111222333"^^xsd:long ;
+                          
+                          :BSNDatum "1986-11-05T00:00:00"^^xsd:dateTime ;
+                          
+                          :Geboortedatum "1986-11-05T00:00:00"^^xsd:dateTime ;
+                          
+                          :DatumVestigingAdres "1986-11-05T00:00:00"^^xsd:dateTime ;
+                          
+                          :VestigingsDatum "1986-11-06T00:00:00"^^xsd:dateTime ;
+                          
+                          :Huisnummer "2"^^xsd:int ;
+                          
+                          :Postcode "3022AX"^^xsd:string ;
+                          
+                          :Voorletters "A.M."^^xsd:string ;
+                          
+                          :Voornamen "Adelbert Maria"^^xsd:string ;
+                          
+                          :Geslacht "Man"^^xsd:string ;
+                          
+                          :Geboorteland "Nederland"^^xsd:string ;
+                          
+                          :Nationaliteit "Nederlandse"^^xsd:string ;
+                          
+                          :Geboorteplaats "Veere"^^xsd:string ;
+                          
+                          :Straatnaam "Vissersplein"^^xsd:string ;
+                          
+                          :Geslachtsnaam "van der Putten"^^xsd:string ;
+                          
+                          :HeeftStrafblad :SB-12345 ;
+                          
+                          :HasGemeenteVanInschrijving :Veere .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Dhr._K.L._Jansen
+
+:Dhr._K.L._Jansen rdf:type :NatuurlijkPersoon ,
+                           owl:NamedIndividual ;
+                  
+                  :BurgerServiceNummer "123456782"^^xsd:long ;
+                  
+                  :Geboortedatum "1957-05-03T00:00:00"^^xsd:dateTime ;
+                  
+                  :BSNDatum "1980-01-01T00:00:00"^^xsd:dateTime ;
+                  
+                  :VestigingsDatum "2001-03-05T00:00:00"^^xsd:dateTime ;
+                  
+                  :DatumVestigingAdres "2001-03-05T00:00:00"^^xsd:dateTime ;
+                  
+                  :Huisnummer "3"^^xsd:int ;
+                  
+                  :Postcode "9301LZ"^^xsd:string ;
+                  
+                  :Straatnaam "Eikenlaan"^^xsd:string ;
+                  
+                  :Geslachtsnaam "Jansen"^^xsd:string ;
+                  
+                  :Voorletters "K.L."^^xsd:string ;
+                  
+                  :Voornamen "Klaas Leendert"^^xsd:string ;
+                  
+                  :Geslacht "Man"^^xsd:string ;
+                  
+                  :Geboorteland "Nederland"^^xsd:string ;
+                  
+                  :Nationaliteit "Nederlandse"^^xsd:string ;
+                  
+                  :Geboorteplaats "Peize"^^xsd:string ;
+                  
+                  :Gemeentedeel "Peize"^^xsd:string ;
+                  
+                  :HeeftLeegStrafblad :LeegStrafblad ;
+                  
+                  :HasGemeenteVanInschrijving :Noordenveld .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Dhr._R_Oden
+
+:Dhr._R_Oden rdf:type :NatuurlijkPersoon ,
+                      owl:NamedIndividual ;
+             
+             :Postcode "1234 RD"^^xsd:string ;
+             
+             :BurgerServiceNummer "123456789"^^xsd:long ;
+             
+             :VestigingsDatum "1960-01-01T00:00:00"^^xsd:dateTime ;
+             
+             :BSNDatum "1960-01-01T00:00:00"^^xsd:dateTime ;
+             
+             :Geboortedatum "1960-01-01T00:00:00"^^xsd:dateTime ;
+             
+             :DatumVestigingAdres "1960-01-01T00:00:00"^^xsd:dateTime ;
+             
+             :Huisnummer "2"^^xsd:int ;
+             
+             :Straatnaam "Kerkweg"^^xsd:string ;
+             
+             :Geslacht "Man"^^xsd:string ;
+             
+             :Geboorteland "Nederland"^^xsd:string ;
+             
+             :Nationaliteit "Nederlandse"^^xsd:string ;
+             
+             :Geboorteplaats "Noordenveld"^^xsd:string ;
+             
+             :Geslachtsnaam "Oden"^^xsd:string ;
+             
+             :Voorletters "R."^^xsd:string ;
+             
+             :Voornamen "Richard"^^xsd:string ;
+             
+             :Gemeentedeel "Roden"^^xsd:string ;
+             
+             :HeeftLeegStrafblad :LeegStrafblad ;
+             
+             :HasGemeenteVanInschrijving :Noordenveld .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Dhr._X._de_Menner
+
+:Dhr._X._de_Menner rdf:type :NatuurlijkPersoon ,
+                            owl:NamedIndividual ;
+                   
+                   :Postcode "1023AD"^^xsd:string ;
+                   
+                   :BSNDatum "1979-07-12T00:00:00"^^xsd:dateTime ;
+                   
+                   :Geboortedatum "1979-07-12T00:00:00"^^xsd:dateTime ;
+                   
+                   :DatumVestigingAdres "1991-11-11T00:00:00"^^xsd:dateTime ;
+                   
+                   :VestigingsDatum "1991-11-11T00:00:00"^^xsd:dateTime ;
+                   
+                   :Huisnummer "3"^^xsd:int ;
+                   
+                   :BurgerServiceNummer "336078273"^^xsd:long ;
+                   
+                   :Geslacht "Man"^^xsd:string ;
+                   
+                   :Geboorteland "Nederland"^^xsd:string ;
+                   
+                   :Nationaliteit "Nederlandse"^^xsd:string ;
+                   
+                   :Voorletters "X."^^xsd:string ;
+                   
+                   :Voornamen "Xaverius"^^xsd:string ;
+                   
+                   :Straatnaam "Zeedijk"^^xsd:string ;
+                   
+                   :Geboorteplaats "Zutphen"^^xsd:string ;
+                   
+                   :Geslachtsnaam "de Menner"^^xsd:string ;
+                   
+                   :HasGemeenteVanInschrijving :Amsterdam ;
+                   
+                   :HeeftLeegStrafblad :LeegStrafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigiDSoort
+
+:DigiDSoort rdf:type :IdentificatiemiddelSoort ,
+                     owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigiD_1
+
+:DigiD_1 rdf:type :Identificatiemiddel ,
+                  owl:NamedIndividual ;
+         
+         :Password "*****"^^xsd:string ;
+         
+         :PasswordDigitaleHandtekening "********"^^xsd:string ;
+         
+         :DigidNummer "0123456789"^^xsd:string ;
+         
+         :Userid "kljansen"^^xsd:string ;
+         
+         :DigitaleHandtekening "kljansen"^^xsd:string ;
+         
+         :EmailAdres "kljansen@gmail.com"^^xsd:string ;
+         
+         :Houder :Dhr._K.L._Jansen ;
+         
+         :IsVanSoort :DigiDSoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#DigiD_2
+
+:DigiD_2 rdf:type :Identificatiemiddel ,
+                  owl:NamedIndividual ;
+         
+         :Password "*****"^^xsd:string ;
+         
+         :PasswordDigitaleHandtekening "********"^^xsd:string ;
+         
+         :DigidNummer "1123456789"^^xsd:string ;
+         
+         :Userid "amvdputten"^^xsd:string ;
+         
+         :DigitaleHandtekening "amvdputten"^^xsd:string ;
+         
+         :EmailAdres "amvdputten@gmail.com"^^xsd:string ;
+         
+         :Houder :Dhr._A.M._van_der_Putten ;
+         
+         :IsVanSoort :DigiDSoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Eindhoven
+
+:Eindhoven rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#G.E._van_der_Weer
+
+:G.E._van_der_Weer rdf:type :NatuurlijkPersoon ,
+                            owl:NamedIndividual ;
+                   
+                   :Huisnummer "1"^^xsd:int ;
+                   
+                   :BSNDatum "1959-03-02T00:00:00"^^xsd:dateTime ;
+                   
+                   :Geboortedatum "1959-03-04T00:00:00"^^xsd:dateTime ;
+                   
+                   :DatumVestigingAdres "1991-11-11T00:00:00"^^xsd:dateTime ;
+                   
+                   :VestigingsDatum "1991-11-11T00:00:00"^^xsd:dateTime ;
+                   
+                   :BurgerServiceNummer "345908756"^^xsd:long ;
+                   
+                   :Postcode "5678UT"^^xsd:string ;
+                   
+                   :Voorletters "G.E."^^xsd:string ;
+                   
+                   :Voornamen "Gerrit Eduard"^^xsd:string ;
+                   
+                   :Geboorteplaats "Hilversum"^^xsd:string ;
+                   
+                   :Geslacht "Man"^^xsd:string ;
+                   
+                   :Geboorteland "Nederland"^^xsd:string ;
+                   
+                   :Nationaliteit "Nederlandse"^^xsd:string ;
+                   
+                   :Straatnaam "Voltastraat"^^xsd:string ;
+                   
+                   :Gemeentedeel "Zuilen"^^xsd:string ;
+                   
+                   :Geslachtsnaam "van der Weer"^^xsd:string ;
+                   
+                   :HeeftLeegStrafblad :LeegStrafblad ;
+                   
+                   :HasGemeenteVanInschrijving :Utrecht .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemID_1
+
+:GemID_1 rdf:type :Identificatiemiddel ,
+                  owl:NamedIndividual ;
+         
+         :Password "*****"^^xsd:string ;
+         
+         :PasswordDigitaleHandtekening "********"^^xsd:string ;
+         
+         :GemeenteIdNummer "GID_Noordenveld_001"^^xsd:string ;
+         
+         :GemeentePlaats "Roden"^^xsd:string ;
+         
+         :DigitaleHandtekening "roden"^^xsd:string ;
+         
+         :Userid "roden"^^xsd:string ;
+         
+         :Houder :Dhr._R_Oden ;
+         
+         :IsVanSoort :GemeenteIDSoort ;
+         
+         :IDVanGemeente :Noordenveld .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemID_2
+
+:GemID_2 rdf:type :Identificatiemiddel ,
+                  owl:NamedIndividual ;
+         
+         :Password "*****"^^xsd:string ;
+         
+         :PasswordDigitaleHandtekening "********"^^xsd:string ;
+         
+         :GemeentePlaats "Amsterdam ZuidOost"^^xsd:string ;
+         
+         :GemeenteIdNummer "GID_Amsterdam_4711"^^xsd:string ;
+         
+         :Userid "pjdevries"^^xsd:string ;
+         
+         :DigitaleHandtekening "pjdevries"^^xsd:string ;
+         
+         :IDVanGemeente :Amsterdam ;
+         
+         :IsVanSoort :GemeenteIDSoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#GemeenteIDSoort
+
+:GemeenteIDSoort rdf:type :IdentificatiemiddelSoort ,
+                          owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Groningen
+
+:Groningen rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Hilversum
+
+:Hilversum rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#IDKaart
+
+:IDKaart rdf:type :IdentificatiemiddelSoort ,
+                  owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#LeegStrafblad
+
+:LeegStrafblad rdf:type :Strafblad ,
+                        owl:NamedIndividual ;
+               
+               rdfs:comment "Dummy strafblad om aan te geven bij een natuurlijk persoon, dat deze geen echt strafblad heeft." .
+[ rdf:type owl:Axiom ;
+  rdfs:comment "Dummy strafblad voor het realiseren van een scheiding tussen mensen met en mensen zonder strafblad" ;
+  owl:annotatedSource :LeegStrafblad ;
+  owl:annotatedTarget :Strafblad ;
+  owl:annotatedProperty rdf:type
+] .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Mevr._Drs._A.C._Meester
+
+:Mevr._Drs._A.C._Meester rdf:type :NatuurlijkPersoon ,
+                                  owl:NamedIndividual ;
+                         
+                         :Geboortedatum "1959-03-02T00:00:00"^^xsd:dateTime ;
+                         
+                         :BSNDatum "1959-03-02T00:00:00"^^xsd:dateTime ;
+                         
+                         :VestigingsDatum "1991-11-11T00:00:00"^^xsd:dateTime ;
+                         
+                         :DatumVestigingAdres "1991-11-11T00:00:00"^^xsd:dateTime ;
+                         
+                         :Huisnummer "3"^^xsd:int ;
+                         
+                         :BurgerServiceNummer "345908757"^^xsd:long ;
+                         
+                         :Postcode "9876GN"^^xsd:string ;
+                         
+                         :Voorletters "A.C."^^xsd:string ;
+                         
+                         :Voornamen "Annie Clara"^^xsd:string ;
+                         
+                         :TitelPredikaat "Drs."^^xsd:string ;
+                         
+                         :Straatnaam "Herestraat"^^xsd:string ;
+                         
+                         :Geboorteplaats "Hilversum"^^xsd:string ;
+                         
+                         :Geslachtsnaam "Meester"^^xsd:string ;
+                         
+                         :Geboorteland "Nederland"^^xsd:string ;
+                         
+                         :Nationaliteit "Nederlandse"^^xsd:string ;
+                         
+                         :Geslacht "Vrouw"^^xsd:string ;
+                         
+                         :HasGemeenteVanInschrijving :Den_Haag ;
+                         
+                         :HeeftLeegStrafblad :LeegStrafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#NV-VOG-123
+
+:NV-VOG-123 rdf:type :GemeentelijkeAanvraag ,
+                     owl:NamedIndividual ;
+            
+            :AmbtenaarPassword "*****"^^xsd:string ;
+            
+            :AmbtenaarPasswordHandtekening "********"^^xsd:string ;
+            
+            :GemeenteAanvraagnummer "NV-VOG-123"^^xsd:string ;
+            
+            :AmbtenaarDigitaleHandtekening "roden"^^xsd:string ;
+            
+            :AmbtenaarUserid "roden"^^xsd:string ;
+            
+            rdfs:comment """Gemeentelijke VOG zaken. Een aanvraag ingedient direct bij een gemeente.
+""" ;
+            
+            :BijbehorendeAanvraag :Aanvraag_PersoonMetStrafblad .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#NV-VOG-123_-_Ok
+
+:NV-VOG-123_-_Ok rdf:type :GemeentelijkeAanvraag ,
+                          owl:NamedIndividual ;
+                 
+                 :AmbtenaarPassword "*****"^^xsd:string ;
+                 
+                 :AmbtenaarPasswordHandtekening "********"^^xsd:string ;
+                 
+                 :GemeenteAanvraagnummer "NV-VOG-123 - Ok"^^xsd:string ;
+                 
+                 :AmbtenaarUserid "roden"^^xsd:string ;
+                 
+                 :AmbtenaarDigitaleHandtekening "roden"^^xsd:string ;
+                 
+                 :BijbehorendeAanvraag :VOGAanvraag_1330688459_533194 .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Noordenveld
+
+:Noordenveld rdf:type :Gemeente ,
+                      owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Paspoort
+
+:Paspoort rdf:type :IdentificatiemiddelSoort ,
+                   owl:NamedIndividual ;
+          
+          rdfs:comment "Elk paspoort heeft een nummer en een houder, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Paspoort_P453027177
+
+:Paspoort_P453027177 rdf:type :Identificatiemiddel ,
+                              owl:NamedIndividual ;
+                     
+                     :PaspoortNummer "P453027177"^^xsd:string ;
+                     
+                     :Houder :Dhr._A.M._van_der_Putten ;
+                     
+                     :IsVanSoort :Paspoort .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Peize
+
+:Peize rdf:type :Gemeente ,
+                owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Pijnacker
+
+:Pijnacker rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Rijbewijs
+
+:Rijbewijs rdf:type :IdentificatiemiddelSoort ,
+                    owl:NamedIndividual ;
+           
+           rdfs:comment "Elk rijbewijs heeft een nummer en een houder, en identificeert een natuurlijk persoon." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Rijbewijs_RDW678214
+
+:Rijbewijs_RDW678214 rdf:type :Identificatiemiddel ,
+                              owl:NamedIndividual ;
+                     
+                     :BurgerServiceNummer "123456782"^^xsd:long ;
+                     
+                     :RijbewijsNummer "RDW678214"^^xsd:string ;
+                     
+                     :EmailAdres "kljansen@gmail.com"^^xsd:string ;
+                     
+                     :Houder :Dhr._K.L._Jansen ;
+                     
+                     :IsVanSoort :Rijbewijs .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Rotterdam
+
+:Rotterdam rdf:type :Gemeente ,
+                    owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#SB-12345
+
+:SB-12345 rdf:type :Strafblad ,
+                   owl:NamedIndividual ;
+          
+          :DatumDelict "2012-02-02T00:00:00"^^xsd:dateTime ;
+          
+          :Strafrechtsketennummer "5159791"^^xsd:string .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Utrecht
+
+:Utrecht rdf:type :Gemeente ,
+                  owl:NamedIndividual .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#VOGAT_3
+
+:VOGAT_3 rdf:type :AanvraagOrganisatieTemplate ,
+                  owl:NamedIndividual ;
+         
+         rdfs:comment "Voorbeeld van een template." .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#VOGAanvraag_1330688459_533194
+
+:VOGAanvraag_1330688459_533194 rdf:type :Aanvraag ,
+                                        owl:NamedIndividual ;
+                               
+                               :AanvragerPassword "*****"^^xsd:string ;
+                               
+                               :AanvragerPasswordHandtekening "********"^^xsd:string ;
+                               
+                               :AanvragerTelefoonnummer "0612345678"^^xsd:string ;
+                               
+                               :AanvragerOndertekeningDatum "2012-03-03T00:00:00"^^xsd:dateTime ;
+                               
+                               :IdentificatieMiddelenNummer "RDW678214"^^xsd:string ;
+                               
+                               :AanvragerUserid "kljansen"^^xsd:string ;
+                               
+                               :AanvragerDigitaleHandtekening "kljansen"^^xsd:string ;
+                               
+                               :AanvragerEmailAddress "kljansen@gmail.com"^^xsd:string ;
+                               
+                               :zijnLegesBetaald "true"^^xsd:boolean ;
+                               
+                               rdfs:comment "Voorbeeld van een aanvraag vergelijkbaar met die binnen de relatiealgebra implementatie." ;
+                               
+                               :AanvragerOndertekeningPlaats :Noordenveld ;
+                               
+                               :HeeftAanvraagIdentificatiemiddelSoort :Rijbewijs ;
+                               
+                               :GebruikteOrganisatieTemplate :VOGAT_3 .
+
+
+
+###  http://is.cs.ou.nl/850648570/Thesis/vog.owl#Veere
+
+:Veere rdf:type :Gemeente ,
+                owl:NamedIndividual .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Aanvraag
+                :Gemeente
+                :GemeentelijkeAanvraag
+                :Identificatiemiddel
+                :IdentificatiemiddelSoort
+                :Persoon
+                :Strafblad
+              )
+] .
+
+
+
+
+
+#################################################################
+#
+#    Rules
+#
+#################################################################
+
+
+<urn:swrl#x> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xAanvrager> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xOndertekendDoor> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#y> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#yHouder> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xPassword> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xUserId> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#yPassword> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#yUserId> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#yNp> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xHandtekening> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#yHandtekening> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xtype> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#ytype> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xnr> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#ynr> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xAanvraagLokatie> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xAanvragerWoonplaats> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xOndertekeningDatum> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xAanvragerVestigingsDatum> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#xBehandelaar> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarOndertekening ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xOndertekendDoor>
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xBehandelaar>
+                                                                                     ]
+                                                                         ] ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :BehandelendAmbtenaar ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xBehandelaar>
+                                                                          ]
+                                                              ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :GemeentelijkeAanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :IsBehandelendAmbtenaarHetzelfdeAlsDeOndertekenaar ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xPassword>
+                                                                                                                                                                                <urn:swrl#yPassword>
+                                                                                                                                                                              )
+                                                                                                                                 ] ;
+                                                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                  rdf:rest rdf:nil ;
+                                                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xUserId>
+                                                                                                                                                                                           <urn:swrl#yUserId>
+                                                                                                                                                                                         )
+                                                                                                                                            ]
+                                                                                                                                ]
+                                                                                                                     ] ;
+                                                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :Userid ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yUserId>
+                                                                                                                      ]
+                                                                                                          ] ;
+                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :Password ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yPassword>
+                                                                                                           ]
+                                                                                               ] ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarUserid ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xUserId>
+                                                                                                ]
+                                                                                    ] ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarPassword ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xPassword>
+                                                                                     ]
+                                                                         ] ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :Houder ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                                          ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :GemeentelijkeAanvraag ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                               ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :GemeenteID ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :BehandelendAmbtenaar ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :AanvraagNietWoonachtigInGemeenteVanAanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvrager>
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :AanvragerOndertekeningPlaats ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvraagLokatie>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :HasGemeenteVanInschrijving ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvragerWoonplaats>
+                                                                                     ] ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:rest rdf:nil ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvraagLokatie> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvragerWoonplaats>
+                                                                                                ]
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarOndertekening ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :Houder ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarDigitaleHandtekening ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xUserId>
+                                                                                     ] ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :AmbtenaarPasswordHandtekening ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xPassword>
+                                                                                                ] ;
+                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :DigitaleHandtekening ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yUserId>
+                                                                                                           ] ;
+                                                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :PasswordDigitaleHandtekening ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yPassword>
+                                                                                                                      ] ;
+                                                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xPassword>
+                                                                                                                                                                                <urn:swrl#yPassword>
+                                                                                                                                                                              )
+                                                                                                                                 ] ;
+                                                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                  rdf:rest rdf:nil ;
+                                                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xUserId>
+                                                                                                                                                                                           <urn:swrl#yUserId>
+                                                                                                                                                                                         )
+                                                                                                                                            ]
+                                                                                                                                ]
+                                                                                                                     ]
+                                                                                                          ]
+                                                                                               ]
+                                                                                    ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :GemeentelijkeAanvraag ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                               ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :GemeenteID ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :HeeftAanvraagIdentificatiemiddelSoort ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xtype>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :IsVanSoort ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#ytype>
+                                                                                                ] ;
+                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :IdentificatieMiddelenNummer ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#ynr>
+                                                                                                                      ] ;
+                                                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                  rdf:rest rdf:nil ;
+                                                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xtype> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#ytype>
+                                                                                                                                            ]
+                                                                                                                                ] ;
+                                                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xnr>
+                                                                                                                                                                                <urn:swrl#ynr>
+                                                                                                                                                                              )
+                                                                                                                                 ]
+                                                                                                                     ]
+                                                                                                          ] ;
+                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :IdentificatieMiddelenNummer ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xnr>
+                                                                                                           ]
+                                                                                               ]
+                                                                                    ] ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :Houder ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                                                     ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :Identificatiemiddel ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y>
+                                                               ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yNp>
+                                                                                     ]
+                                                                         ] ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvrager>
+                                                                          ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :NatuurlijkPersoonZonderStrafblad ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#yNp>
+                                                               ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :AanvraagPersoonZonderStrafblad ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :OndertekendDoor ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :Houder ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHouder>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xHandtekening>
+                                                                                                                                                                                <urn:swrl#yHandtekening>
+                                                                                                                                                                              )
+                                                                                                                                 ] ;
+                                                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                  rdf:rest rdf:nil ;
+                                                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xPassword>
+                                                                                                                                                                                           <urn:swrl#yPassword>
+                                                                                                                                                                                         )
+                                                                                                                                            ]
+                                                                                                                                ]
+                                                                                                                     ] ;
+                                                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :PasswordDigitaleHandtekening ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yPassword>
+                                                                                                                      ]
+                                                                                                          ] ;
+                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :DigitaleHandtekening ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yHandtekening>
+                                                                                                           ]
+                                                                                               ] ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :AanvragerPasswordHandtekening ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xPassword>
+                                                                                                ]
+                                                                                    ] ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :AanvragerDigitaleHandtekening ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xHandtekening>
+                                                                                     ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :Identificatiemiddel ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#y>
+                                                               ]
+                                                   ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :NatuurlijkPersoonMetStrafblad ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#yNp>
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvrager>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#yNp>
+                                                                                     ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :AanvraagPersoonMetStrafblad ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :AanvraagWoonachtigInGemeenteVanAanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :AanvragerOndertekeningPlaats ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvraagLokatie>
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                       rdf:rest rdf:nil ;
+                                                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvraagLokatie> ;
+                                                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvragerWoonplaats>
+                                                                                                                                 ]
+                                                                                                                     ] ;
+                                                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                        <http://www.w3.org/2003/11/swrl#arguments> ( <urn:swrl#xOndertekeningDatum>
+                                                                                                                                                                     <urn:swrl#xAanvragerVestigingsDatum>
+                                                                                                                                                                   )
+                                                                                                                      ]
+                                                                                                          ] ;
+                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :VestigingsDatum ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvragerVestigingsDatum>
+                                                                                                           ]
+                                                                                               ] ;
+                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :AanvragerOndertekeningDatum ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xOndertekeningDatum>
+                                                                                                ]
+                                                                                    ] ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :HasGemeenteVanInschrijving ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvragerWoonplaats>
+                                                                                     ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvrager>
+                                                               ]
+                                                   ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :Aanvrager ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xAanvrager>
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#xAanvrager> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xOndertekendDoor>
+                                                                                     ]
+                                                                         ] ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :OndertekendDoor ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x> ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl#xOndertekendDoor>
+                                                                          ]
+                                                              ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Aanvraag ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :IsOndertekendDoorZelfdePersoonAlsAanvrager ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl#x>
+                                                    ]
+                                        ]
+] .
+
+###  Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net
+
