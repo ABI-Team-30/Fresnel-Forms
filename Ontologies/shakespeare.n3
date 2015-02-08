@@ -1,0 +1,167 @@
+# Saved by TopBraid on Thu May 01 11:48:48 PDT 2008
+# baseURI: http://www.workingontologist.org/Examples/Chapter3/shakespeare.owl
+
+@prefix lit:     <http://www.workingontologist.org/Examples/Chapter3/shakespeare.owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:     <http://www.workingontologist.org/Examples/Chapter3/geography.owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix bio:     <http://www.workingontologist.org/Examples/Chapter3/biography.owl#> .
+
+bio:livedIn
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Person ;
+      rdfs:label "lived in"^^xsd:string ;
+      rdfs:range lit:Place .
+
+bio:married
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Person ;
+      rdfs:label "married"^^xsd:string ;
+      rdfs:range lit:Person .
+
+geo:ChannelIslands
+      a       lit:Place ;
+      geo:partOf geo:UK .
+
+geo:England
+      a       lit:Place ;
+      rdfs:label "England"^^xsd:string ;
+      geo:partOf geo:UK .
+
+geo:IsleOfMan
+      a       lit:Place ;
+      geo:partOf geo:UK .
+
+geo:NorthernIreland
+      a       lit:Place ;
+      geo:partOf geo:UK .
+
+geo:Scotland
+      a       lit:Place ;
+      rdfs:label "Scotland"^^xsd:string ;
+      geo:partOf geo:UK .
+
+geo:Stratford
+      a       lit:Place ;
+      rdfs:label "Stratford"^^xsd:string ;
+      geo:isIn geo:England .
+
+geo:UK
+      a       lit:Place ;
+      rdfs:label "UK"^^xsd:string .
+
+geo:Wales
+      a       lit:Place ;
+      geo:partOf geo:UK .
+
+geo:isIn
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Place ;
+      rdfs:label "is in"^^xsd:string ;
+      rdfs:range lit:Place .
+
+geo:partOf
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Place ;
+      rdfs:label "part of"^^xsd:string ;
+      rdfs:range lit:Place .
+
+<http://www.workingontologist.org/Examples/Chapter3/shakespeare.owl>
+      a       owl:Ontology ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+lit:AnneHathaway
+      a       lit:Person ;
+      rdfs:label "Anne hathaway"^^xsd:string ;
+      bio:married lit:Shakespeare ;
+      lit:hasChild "[lit:Judith, lit:Hamnet, lit:Susanna]" .
+
+lit:AsYouLikeIt
+      a       lit:Play .
+
+lit:Author
+      a       owl:Class ;
+      rdfs:label "Author"^^xsd:string ;
+      rdfs:subClassOf lit:Person .
+
+lit:Hamlet
+      a       lit:Play .
+
+lit:Hamnet
+      a       lit:Person ;
+      rdfs:label "Hamnet"^^xsd:string .
+
+lit:HenryV
+      a       lit:Play .
+
+lit:Judith
+      a       lit:Person ;
+      rdfs:label "Judith"^^xsd:string .
+
+lit:KingLear
+      a       lit:Play ;
+      rdfs:label "King lear"^^xsd:string .
+
+lit:LovesLaboursLost
+      a       lit:Play .
+
+lit:Macbeth
+      a       lit:Play ;
+      rdfs:label "Macbeth"^^xsd:string ;
+      lit:setIn geo:Scotland .
+
+lit:MeasureForMeasure
+      a       lit:Play .
+
+lit:Othello
+      a       lit:Play .
+
+lit:Person
+      a       owl:Class ;
+      rdfs:label "Person"^^xsd:string .
+
+lit:Place
+      a       owl:Class ;
+      rdfs:label "Place"^^xsd:string .
+
+lit:Play
+      a       owl:Class ;
+      rdfs:label "Play"^^xsd:string .
+
+lit:Shakespeare
+      a       lit:Author ;
+      rdfs:label "Shakespeare"^^xsd:string ;
+      bio:livedIn geo:Stratford ;
+      lit:hasChild (lit:Susanna lit:Hamnet lit:Judith) ;
+      lit:wrote lit:AsYouLikeIt , lit:TheTempest , lit:MeasureForMeasure , lit:TwelfthNight , lit:HenryV , lit:KingLear , lit:WintersTale , lit:Othello , lit:LovesLaboursLost , lit:Macbeth , lit:Hamlet .
+
+lit:Susanna
+      a       lit:Person ;
+      rdfs:label "Susanna"^^xsd:string .
+
+lit:TheTempest
+      a       lit:Play .
+
+lit:TwelfthNight
+      a       lit:Play .
+
+lit:WintersTale
+      a       lit:Play .
+
+lit:hasChild
+      a       owl:ObjectProperty ;
+      rdfs:label "has child"^^xsd:string .
+
+lit:setIn
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Play ;
+      rdfs:label "set in"^^xsd:string ;
+      rdfs:range lit:Place .
+
+lit:wrote
+      a       owl:ObjectProperty ;
+      rdfs:domain lit:Author ;
+      rdfs:label "wrote"^^xsd:string ;
+      rdfs:range lit:Play .
