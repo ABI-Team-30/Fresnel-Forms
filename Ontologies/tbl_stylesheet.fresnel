@@ -1,0 +1,210 @@
+@prefix :      <#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dbpedia_tim_berners_lee_extract: <http://dbpedia.org/ontology/> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owf:   <http://is.cs.ou.nl/OWF/#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix d0:    <http://www.ontologydesignpatterns.org/ont/d0.owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dul:   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fresnel: <http://www.w3.org/2004/09/fresnel#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+
+:foaf-depictionPersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          "depiction" ;
+        fresnel:labelStyle     "display:none;"^^fresnel:stylingInstructions ;
+        fresnel:propertyStyle  "padding: 1% 5% 0% 5%;"^^fresnel:stylingInstructions ;
+        fresnel:value          fresnel:image ;
+        fresnel:valueStyle     "width: 90%;"^^fresnel:stylingInstructions .
+
+:dul-hasRoleFormat  a                 fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "hasRole" ;
+        fresnel:propertyFormatDomain  dul:hasRole .
+
+_:b0    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:caption ;
+        fresnel:use       :captionPersonLensFormat .
+
+:PersonLensGroup  a  fresnel:Group .
+
+_:b1    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:parent ;
+        fresnel:use       :parentPersonLensFormat .
+
+:occupationPersonLensFormat
+        a              fresnel:Format ;
+        fresnel:label  "Occupation" .
+
+:foaf-nameFormat  a                   fresnel:Format ;
+        owf:datatype                  rdfs:Literal ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "name" ;
+        fresnel:propertyFormatDomain  foaf:name .
+
+_:b2    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:birthDate ;
+        fresnel:use       :birthDatePersonLensFormat .
+
+:birthDateFormat  a                   fresnel:Format ;
+        owf:datatype                  xsd:date ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "birthDate" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:birthDate .
+
+_:b3    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:birthName ;
+        fresnel:use       :birthNamePersonLensFormat .
+
+:birthNamePersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          "Born" ;
+        fresnel:labelStyle     "padding: 0% 1% 0% 1%;"^^fresnel:stylingInstructions ;
+        fresnel:propertyStyle  "padding: 1% 1% 0% 1%;"^^fresnel:stylingInstructions ;
+        fresnel:valueStyle     "padding: 0% 1% 0% 1%;"^^fresnel:stylingInstructions .
+
+:captionFormat  a                     fresnel:Format ;
+        owf:datatype                  xsd:string ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "caption" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:caption .
+
+:owl-ThingLens  a                fresnel:Lens ;
+        owf:xpos                 "4900"^^xsd:int ;
+        owf:ypos                 "50"^^xsd:int ;
+        fresnel:classLensDomain  owl:Thing ;
+        fresnel:group            :dbpedia_tim_berners_lee_extractGroup , :owl-ThingLensGroup ;
+        fresnel:hideProperties   ()
+         ;
+        fresnel:purpose          fresnel:defaultLens ;
+        fresnel:showProperties   ( dbpedia_tim_berners_lee_extract:birthName dbpedia_tim_berners_lee_extract:title foaf:name dbpedia_tim_berners_lee_extract:caption foaf:depiction dul:hasRole dul:hasLocation dul:sameSettingAs dbpedia_tim_berners_lee_extract:occupation ) .
+
+:foaf-depictionFormat
+        a                             fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "depiction" ;
+        fresnel:propertyFormatDomain  foaf:depiction .
+
+:PersonLens  a                   fresnel:Lens ;
+        owf:xpos                 "3500"^^xsd:int ;
+        owf:ypos                 "344"^^xsd:int ;
+        fresnel:classLensDomain  dbpedia_tim_berners_lee_extract:Person ;
+        fresnel:group            :dbpedia_tim_berners_lee_extractGroup , :PersonLensGroup ;
+        fresnel:hideProperties   ( dul:hasRole dul:hasLocation dul:sameSettingAs ) ;
+        fresnel:purpose          fresnel:defaultLens ;
+        fresnel:showProperties   ( _:b4 _:b5 _:b0 _:b3 _:b2 _:b6 _:b7 _:b8 _:b9 _:b1 dul:hasRole dul:hasLocation dul:sameSettingAs ) .
+
+:dul-hasLocationFormat
+        a                             fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "hasLocation" ;
+        fresnel:propertyFormatDomain  dul:hasLocation .
+
+:occupationFormat  a                  fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "occupation" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:occupation .
+
+_:b6    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:birthPlace ;
+        fresnel:use       :birthPlacePersonLensFormat .
+
+:birthNameFormat  a                   fresnel:Format ;
+        owf:datatype                  xsd:string ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "birthName" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:birthName .
+
+:birthPlaceFormat  a                  fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "birthPlace" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:birthPlace .
+
+:birthPlacePersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          fresnel:none ;
+        fresnel:propertyStyle  "padding: 0% 1% 1% 1%;"^^fresnel:stylingInstructions ;
+        fresnel:valueStyle     "padding: 0% 1% 0% 1%;"^^fresnel:stylingInstructions .
+
+_:b7    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:occupation ;
+        fresnel:use       :occupationPersonLensFormat .
+
+:owl-ThingLensGroup  a  fresnel:Group .
+
+:parentPersonLensFormat
+        a              fresnel:Format ;
+        fresnel:label  "Parents" .
+
+:partnerPersonLensFormat
+        a              fresnel:Format ;
+        fresnel:label  "Spouse(s)" .
+
+:titlePersonLensFormat
+        a              fresnel:Format ;
+        fresnel:label  "Title" .
+
+:dul-sameSettingAsFormat
+        a                             fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "sameSettingAs" ;
+        fresnel:propertyFormatDomain  dul:sameSettingAs .
+
+:captionPersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          "caption" ;
+        fresnel:labelStyle     "display:none;"^^fresnel:stylingInstructions ;
+        fresnel:propertyStyle  "padding: 0% 5% 1% 5%;"^^fresnel:stylingInstructions ;
+        fresnel:valueStyle     "width: 90%; text-align:center;"^^fresnel:stylingInstructions .
+
+_:b4    a                 fresnel:propertyDescription ;
+        fresnel:property  foaf:name ;
+        fresnel:use       :foaf-namePersonLensFormat .
+
+:titleFormat  a                       fresnel:Format ;
+        owf:datatype                  xsd:string ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "title" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:title .
+
+_:b8    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:title ;
+        fresnel:use       :titlePersonLensFormat .
+
+:birthDatePersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          fresnel:none ;
+        fresnel:propertyStyle  "padding: 0% 1% 0% 1%;"^^fresnel:stylingInstructions ;
+        fresnel:valueStyle     "padding: 0% 1% 0% 1%;"^^fresnel:stylingInstructions .
+
+:foaf-namePersonLensFormat
+        a                      fresnel:Format ;
+        fresnel:label          "name" ;
+        fresnel:labelStyle     "display: none;"^^fresnel:stylingInstructions ;
+        fresnel:propertyStyle  "font-size: 125%; font-weight: bold;"^^fresnel:stylingInstructions ;
+        fresnel:valueStyle     "width:98%; text-align: center;"^^fresnel:stylingInstructions .
+
+:parentFormat  a                      fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "parent" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:parent .
+
+:partnerFormat  a                     fresnel:Format ;
+        fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
+        fresnel:label                 "partner" ;
+        fresnel:propertyFormatDomain  dbpedia_tim_berners_lee_extract:partner .
+
+_:b5    a                 fresnel:propertyDescription ;
+        fresnel:property  foaf:depiction ;
+        fresnel:use       :foaf-depictionPersonLensFormat .
+
+_:b9    a                 fresnel:propertyDescription ;
+        fresnel:property  dbpedia_tim_berners_lee_extract:partner ;
+        fresnel:use       :partnerPersonLensFormat .
