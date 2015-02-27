@@ -22,7 +22,7 @@
         fresnel:labelStyle     "display:none;"^^fresnel:stylingInstructions ;
         fresnel:propertyStyle  "padding: 1% 5% 0% 5%;"^^fresnel:stylingInstructions ;
         fresnel:value          fresnel:image ;
-        fresnel:valueStyle     "width: 90%;"^^fresnel:stylingInstructions .
+        fresnel:valueStyle     "width: 90%;padding-bottom:0;"^^fresnel:stylingInstructions .
 
 :dul-hasRoleFormat  a                 fresnel:Format ;
         fresnel:group                 :dbpedia_tim_berners_lee_extractGroup ;
@@ -162,7 +162,7 @@ _:b7    a                 fresnel:propertyDescription ;
         fresnel:label          "caption" ;
         fresnel:labelStyle     "display:none;"^^fresnel:stylingInstructions ;
         fresnel:propertyStyle  "padding: 0% 5% 1% 5%;"^^fresnel:stylingInstructions ;
-        fresnel:valueStyle     "width: 90%; text-align:center;"^^fresnel:stylingInstructions .
+        fresnel:valueStyle     "width: 90%; text-align:center;padding-top:0;"^^fresnel:stylingInstructions .
 
 _:b4    a                 fresnel:propertyDescription ;
         fresnel:property  foaf:name ;
