@@ -1,0 +1,141 @@
+@prefix fresnel:  <http://www.w3.org/2004/09/fresnel#> .
+@prefix TheFirm:  <http://www.workingontologist.org/Examples/Chapter6/TheFirm.owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix owf:  <http://is.cs.ou.nl/OWF/#> .
+@prefix unsupp: <http://is.cs.ou.nl/unsupported/#> .
+@prefix :  <#> .
+
+
+:ThingLens rdf:type fresnel:Lens ;
+   fresnel:purpose fresnel:defaultLens ;
+   fresnel:classLensDomain owl:Thing ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:showProperties (  ) ;
+   fresnel:hideProperties (  ) ;
+   owf:xpos 4900 ;
+   owf:ypos 50 .
+
+:CompanyLens rdf:type fresnel:Lens ;
+   fresnel:purpose fresnel:defaultLens ;
+   fresnel:classLensDomain TheFirm:Company ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:showProperties (  ) ;
+   fresnel:hideProperties (  ) ;
+   owf:xpos 4760 ;
+   owf:ypos 200 .
+
+:TheFirmGroup rdf:type fresnel:Group ;
+   fresnel:resourceStyle "color:yellow"^^fresnel:stylingInstructions ;
+   fresnel:label "illegal - so not used" .
+
+:PersonLens rdf:type fresnel:Lens ;
+   fresnel:purpose fresnel:defaultLens ;
+   fresnel:classLensDomain TheFirm:Person ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:group :PersonLensGroup ;
+   fresnel:showProperties (
+            TheFirm:isAvailable
+            TheFirm:name
+            TheFirm:age
+            TheFirm:indirectlyContractsTo
+            [
+                rdf:type fresnel:propertyDescription ;
+                fresnel:property TheFirm:contractsTo ;
+                fresnel:use :contractsToPersonLensFormat
+            ]
+            [
+                rdf:type fresnel:propertyDescription ;
+                fresnel:property TheFirm:freeLancesTo ;
+                fresnel:use :freeLancesToPersonLensFormat
+            ]
+            TheFirm:isEmployedBy
+            TheFirm:worksFor
+            TheFirm:birthYear
+            TheFirm:timeOfBirth
+        ) ;
+   fresnel:hideProperties ( TheFirm:worksFor ) ;
+   owf:xpos 5090 ;
+   owf:ypos 150 ;
+   unsupp:justAProperty "JustForTesting" .
+
+:PersonLensGroup rdf:type fresnel:Group ;
+      fresnel:resourceStyle "color:purple"^^fresnel:stylingInstructions ;
+      fresnel:labelStyle  "color:red"^^fresnel:stylingInstructions ;
+      fresnel:valueStyle  "color:white"^^fresnel:stylingInstructions .
+
+:contractsToPersonLensFormat rdf:type fresnel:Format ;
+      fresnel:label "contractedTo" ;
+      fresnel:value fresnel:image ;
+      owf:delimiter "&" ;
+      owf:autocompleteFromClass TheFirm:Company .
+
+:freeLancesToPersonLensFormat rdf:type fresnel:Format ;
+      fresnel:label fresnel:none ;
+      owf:autocompleteFromClass TheFirm:Company , TheFirm:Person .
+
+:indirectlyContractsPersonLensToFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:indirectlyContractsTo ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:group :PersonLensGroup ;
+   fresnel:labelStyle "color:blue"^^fresnel:stylingInstructions .
+
+:indirectlyContractsToFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:indirectlyContractsTo ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:group :PersonLensGroup ;
+   fresnel:label "indirectlyContractsTo" ;
+   owf:delimiter "\\n" ;
+   owf:datatype fresnel:image .
+
+:contractsToFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:contractsTo ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "contractsTo" .
+
+:ageFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:age ;
+   owf:datatype xsd:int ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "age" .
+
+:nameFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:name ;
+   owf:datatype xsd:string ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "<name>" .
+   
+:isAvailableFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:isAvailable ;
+   owf:datatype xsd:boolean ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "isAvailable" .
+
+:worksForFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:worksFor ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "worksFor" .
+
+:freeLancesToFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:freeLancesTo ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "freeLancesTo" .
+
+:isEmployedByFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:isEmployedBy ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "isEmployedBy" ;
+   owf:autocompleteFromClass TheFirm:Company .
+
+:birthYearFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:birthYear ;
+   owf:datatype xsd:gYear ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "birthYear" .
+
+:timeOfBirthFormat rdf:type fresnel:Format ;
+   fresnel:propertyFormatDomain  TheFirm:timeOfBirth ;
+   owf:datatype xsd:time ;
+   fresnel:group :TheFirmGroup ;
+   fresnel:label "timeOfBirth" .

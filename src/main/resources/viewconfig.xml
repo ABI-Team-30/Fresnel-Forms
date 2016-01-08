@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <VSNode splits="0.25 0.75">
+        <CNode>
+            <Component label="Class hierarchy">
+                <Property id="pluginId" value="org.protege.editor.owl.OWLAssertedClassHierarchy"/>
+            </Component>
+        </CNode>
+        <CNode>
+            <Component label="Fresnel Forms">
+                <Property id="pluginId" value="nl.ou.fresnelforms.view.FresnelFormsViewComponent"/>
+            </Component>
+        </CNode>
+    </VSNode>
+</layout>

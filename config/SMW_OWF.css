@@ -1,0 +1,38 @@
+.ib_resource {
+  width            : 22em              ;
+  font-size        : 88%               ; 
+  border           : 1px solid #aaaaaa ;
+  background-color : #f9f9f9           ;
+  color            : black             ;
+  margin-bottom    : 0.5em             ;
+  margin-left      : 1em               ;
+  padding          : 0.2em             ;
+  float            : right             ;
+  clear            : right             ;
+  text-align       : left              ;
+  line-height      : 1.5em             ;
+}
+
+.ib_property {
+  float   : left ;
+  clear   : left ;
+  padding : 1%   ;
+  width   : 98%  ;
+}
+
+.ib_label {
+  float   : left ;
+  clear   : left ;
+  padding : 1%   ;
+  width   : 33%  ;
+}
+
+.ib_value {
+  float   : left ;
+  padding : 1%   ;
+  width   : 63%  ;
+}
+
+.ib_value img {
+  width   : 100% ;
+}

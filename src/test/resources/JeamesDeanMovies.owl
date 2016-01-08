@@ -1,0 +1,268 @@
+@prefix : <http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432> .
+
+<http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+
+xsd:date rdf:type rdfs:Datatype .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#id
+
+:id rdf:type owl:FunctionalProperty ,
+             owl:InverseFunctionalProperty ,
+             owl:ObjectProperty ;
+    
+    rdfs:domain :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#ownsMovie
+
+:ownsMovie rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Actor ,
+                       :CanBeOneMovieOwner ,
+                       :MaybeMovieOwner ;
+           
+           rdfs:range :Movie ;
+           
+           rdfs:domain :MovieOwner ,
+                       :OneMovieOwner .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#playsin
+
+:playsin rdf:type owl:ObjectProperty ;
+         
+         rdfs:domain :Actor ;
+         
+         rdfs:range :Movie .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#birthDate
+
+:birthDate rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           
+           rdfs:domain :Person ;
+           
+           rdfs:range xsd:date .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#bsn
+
+:bsn rdf:type owl:DatatypeProperty ;
+     
+     rdfs:domain :Person ;
+     
+     rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#id
+
+:id rdf:type owl:DatatypeProperty ,
+             owl:FunctionalProperty ;
+    
+    rdfs:range xsd:integer .
+
+
+
+###  http://xmlns.com/foaf/0.1/firstname
+
+foaf:firstname rdf:type owl:DatatypeProperty ;
+               
+               rdfs:domain :Person ;
+               
+               rdfs:range rdfs:Literal .
+
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+
+foaf:homepage rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :Person ;
+              
+              rdfs:range rdfs:Literal .
+
+
+
+###  http://xmlns.com/foaf/0.1/lastname
+
+foaf:lastname rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :Person ;
+              
+              rdfs:range rdfs:Literal .
+
+
+
+###  http://xmlns.com/foaf/0.1/name
+
+foaf:name rdf:type owl:DatatypeProperty ;
+          
+          rdfs:label "name" ;
+          
+          rdfs:domain :Person ;
+          
+          rdfs:range rdfs:Literal .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#Actor
+
+:Actor rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#CanBeOneMovieOwner
+
+:CanBeOneMovieOwner rdf:type owl:Class ;
+                    
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :ownsMovie ;
+                                          owl:onClass :Movie ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                        ] ;
+                    
+                    rdfs:subClassOf :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#Human
+
+:Human rdf:type owl:Class ;
+       
+       owl:equivalentClass :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#MaybeMovieOwner
+
+:MaybeMovieOwner rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#Movie
+
+:Movie rdf:type owl:Class .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#MovieOwner
+
+:MovieOwner rdf:type owl:Class ;
+            
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ownsMovie ;
+                                  owl:onClass :Movie ;
+                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+            
+            rdfs:subClassOf :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#OneMovieOwner
+
+:OneMovieOwner rdf:type owl:Class ;
+               
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ownsMovie ;
+                                     owl:onClass :Movie ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ownsMovie ;
+                                     owl:onClass :Movie ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ;
+               
+               rdfs:subClassOf :Person .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#Person
+
+:Person rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#RebelWithoutaCourse
+
+:RebelWithoutaCourse rdf:type :Movie ,
+                              owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/teunt/ontologies/2015/2/untitled-ontology-432#Rockey
+
+:Rockey rdf:type :Person ,
+                 owl:NamedIndividual .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
