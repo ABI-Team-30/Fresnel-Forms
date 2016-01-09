@@ -1,0 +1,262 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>nl.ou.cs.is.protege.plugin</groupId>
+	<artifactId>fresnelforms</artifactId>
+	<version>2.0.1-SNAPSHOT</version>
+	<name>Fresnel Forms</name>
+    <url>http://is.cs.ou.nl/OWF/index.php5/Fresnel_Forms</url>
+	<description>Fresnel Forms plugin for Protégé</description>
+	<packaging>bundle</packaging>
+	<organization>
+		<name>Faculty of Management, Science &amp; Technology, Open University of the Netherlands</name>
+        <url>https://www.ou.nl/</url>
+	</organization>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+    <developers>
+        <developer><name>Thomas Brenninkmeijer</name></developer>
+        <developer><name>Tim Zwanenberg</name></developer>
+        <developer><name>Teun Theunissen</name></developer>
+        <developer><name>Joop van de Heijning</name></developer>
+        <developer><name>Alex Mekkering</name></developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name>Lloyd Rutledge</name>
+            <roles>
+                <role>Supervisor</role>
+            </roles>
+        </contributor>
+    </contributors>
+    <scm>
+        <url>https://svnext.ou.nl/INF_Studenten_ABI_team30/source/trunk/FresnelForms</url>
+        <connection>scm:svn:${project.scm.url}</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/ABI-Team-30/Fresnel-Forms</url>
+    </issueManagement>
+	<dependencies>
+		<dependency>
+			<groupId>edu.stanford.protege</groupId>
+			<artifactId>org.protege.editor.core.application</artifactId>
+			<version>5.0.0-beta-17</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.protege</groupId>
+			<artifactId>org.protege.editor.owl</artifactId>
+			<version>5.0.0-beta-17</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>apache-jena-libs</artifactId>
+			<type>pom</type>
+			<version>2.13.0</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jsonld-java</groupId>
+			<artifactId>jsonld-java</artifactId>
+			<version>0.5.1</version>
+			<scope>runtime</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.groupId}.${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.4.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-Activator>org.protege.editor.core.plugin.DefaultPluginActivator</Bundle-Activator>
+						<Bundle-ClassPath>., {maven-dependencies}</Bundle-ClassPath>
+						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
+						<Import-Package>
+							org.osgi.framework,
+							org.protege.editor.core.plugin,
+							org.protege.editor.owl.ui,
+							org.protege.editor.owl.ui.view,
+							org.protege.editor.owl.ui.prefix,
+							org.protege.editor.owl.model,
+							org.protege.editor.owl.model.event,
+							org.semanticweb.owlapi.model,
+							org.semanticweb.owlapi.vocab,
+							javax.swing,
+							javax.swing.filechooser,
+							org.apache.log4j,
+							org.slf4j,
+							javax.xml.datatype,
+							org.xml.sax,
+							org.w3c.dom,
+						</Import-Package>
+						<Export-Package>
+							com.hp.hpl.jena.*,
+							com.github.jsonldjava.*,
+							org.apache.jena.iri.*,
+							org.apache.jena.atlas.*,
+							org.apache.jena.riot.*,
+							org.apache.xerces.*,
+							org.apache.xml.*,
+                            org.apache.commons.lang3.*,
+							org.w3c.dom.html;-split-package:=merge-first,
+							sun.io,
+						</Export-Package>
+					</instructions>
+				</configuration>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>install</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<pde>true</pde>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<!-- integration of local checkstyle definition -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.13</version>
+				<configuration>
+					<configLocation>config/ou_checks.xml</configLocation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.1</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<profiles>
+		<profile>
+			<!-- This is a profile for better eclipse (pde) and Maven interoperability -->
+			<id>ide</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!-- Including this plug-in eliminates the "maven-dependency-plugin 
+							(goals "copy-dependencies", "unpack") is not supported by m2e" Eclipse error. -->
+						<!-- See stackoverflow for full discussion: http://stackoverflow.com/q/8706017. -->
+						<!-- This plugin's configuration is used to store Eclipse m2e settings 
+							only. It has no influence on the Maven build itself. -->
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-dependency-plugin</artifactId>
+												<versionRange>[2.1,)</versionRange>
+												<goals>
+													<goal>copy-dependencies</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<!-- Copy all Maven dependencies to project root. Necessary for one 
+						mode of running Protege in Eclipse (PDE + m2e + OSGi Framework launcher). -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.8</version>
+						<executions>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}</outputDirectory>
+									<overWriteReleases>false</overWriteReleases>
+									<overWriteSnapshots>false</overWriteSnapshots>
+									<overWriteIfNewer>true</overWriteIfNewer>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- Remove all Maven dependencies from project root, placed there by 
+						maven-dependency-plugin. -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.5</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>*.jar</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
